@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Responsive Login and Signup Form</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="lstyle.css">
+    <script type="module" src="lscript.js"></script>
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <section class="container forms">
+        <div class="form login">
+            <div class="form-content">
+                <header>Login</header>
+                <form id="login-form">
+                    <div class="field input-field">
+                        <input type="email" placeholder="Email" class="input" id="login-email" required>
+                    </div>
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" class="password" id="login-password" required>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+                    <div class="form-link">
+                        <a href="#" class="forgot-pass">Forgot password?</a>
+                    </div>
+                    <div class="field button-field">
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+                <div class="form-link">
+                    <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+                </div>
+            </div>
+        </div>
+        <!-- Signup Form -->
+        <div class="form signup">
+            <div class="form-content">
+                <header>Signup</header>
+                <form id="signup-form">
+                    <div class="field input-field">
+                        <input type="email" placeholder="Email" class="input" id="signup-email" required>
+                    </div>
+                    <div class="field input-field">
+                        <input type="password" placeholder="Create password" class="password" id="signup-password" required>
+                    </div>
+                    <div class="field input-field">
+                        <input type="password" placeholder="Confirm password" class="password" required>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+                    <div class="field button-field">
+                        <button type="submit">Signup</button>
+                    </div>
+                </form>
+                <div class="form-link">
+                    <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- JavaScript -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDYrcXkSzYNauCY6QypJKtNk_IVHYmn6Gs",
+            authDomain: "login-fc3db.firebaseapp.com",
+            databaseURL: "https://login-fc3db-default-rtdb.firebaseio.com",
+            projectId: "login-fc3db",
+            storageBucket: "login-fc3db.appspot.com",
+            messagingSenderId: "363044743065",
+            appId: "1:363044743065:web:a50a43257c1a12b9955508"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Login function
+        function loginUser(email, password) {
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log('Login successful', user);
+                    alert('Login successful!');
+                    // Redirect to main page
+                    window.location.href = 'Homepage.html';
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error(`Error [${errorCode}]: ${errorMessage}`);
+                    alert(`Error: ${errorMessage}`);
+                });
+        }
+
+        // Signup function
+        function signupUser(email, password) {
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log('Signup successful', user);
+                    alert('Signup successful!');
+                    // Redirect to main page
+                    window.location.href = 'Homepage.html';
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error(`Error [${errorCode}]: ${errorMessage}`);
+                    alert(`Error: ${errorMessage}`);
+                });
+        }
+
+        // Event listeners for form submissions
+        document.getElementById('login-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            console.log('Logging in with', email, password);
+            loginUser(email, password);
+        });
+
+        document.getElementById('signup-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            console.log('Signing up with', email, password);
+            signupUser(email, password);
+        });
+
+        // Show/Hide password functionality
+        const forms = document.querySelector(".forms"),
+              pwShowHide = document.querySelectorAll(".eye-icon"),
+              links = document.querySelectorAll(".link");
+
+        pwShowHide.forEach(eyeIcon => {
+            eyeIcon.addEventListener("click", () => {
+                let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+
+                pwFields.forEach(password => {
+                    if(password.type === "password"){
+                        password.type = "text";
+                        eyeIcon.classList.replace("bx-hide", "bx-show");
+                        return;
+                    }
+                    password.type = "password";
+                    eyeIcon.classList.replace("bx-show", "bx-hide");
+                })
+            })
+        });
+
+        links.forEach(link => {
+            link.addEventListener("click", e => {
+               e.preventDefault(); //preventing form submit
+               forms.classList.toggle("show-signup");
+            })
+        });
+    </script>
+</body>
+</html>

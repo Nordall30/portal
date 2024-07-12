@@ -1,0 +1,300 @@
+/* Reset and general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://static.vecteezy.com/system/resources/thumbnails/026/527/622/original/circuit-board-connection-and-falling-down-binary-code-on-blue-background-digital-rain-of-binary-numbers-numbers-flowing-between-lines-moving-electrons-on-motherboard-internet-technology-concept-video.jpg);
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            position: relative; /* Ensure body positioning context */
+        }
+nav {
+            background-color: #333;
+            z-index: 10; /* Ensure nav is above other elements */
+            position: relative;
+        }
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    flex: 1;
+    text-align: center;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 16px;
+    transition: background-color 0.3s;
+    background-color: ##0056b3; /* Dark blue background for menu items */
+}
+
+nav ul li a:hover {
+    background-color: #00008b; /* Darker blue on hover */
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+#guidance-office-section {
+    display: none;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+/* General form styling */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+label {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+textarea, input[type="text"], input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Specific styling for the container around the input fields */
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-container label {
+    flex: 1;
+    min-width: 120px;
+    margin-right: 10px;
+}
+
+.input-container input[type="text"],
+.input-container input[type="email"] {
+    flex: 2;
+}
+
+
+        section {
+            padding: 30px;
+            background: white;
+            margin: 30px 0;
+        }
+
+        .fees,
+        .documents {
+            margin-bottom: 20px;
+        }
+
+        .fees table,
+        .documents ul {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .fees table,
+        .fees th,
+        .fees td {
+            border: 1px solid #ddd;
+        }
+
+        .fees th,
+        .fees td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        .fees th {
+            background-color: #C0C0C0;
+        }
+
+        .shs-table {
+            background-color: #dff0d8; /* Light green background */
+        }
+
+        .college-table {
+            background-color: #d9edf7; /* Light blue background */
+        }
+
+        .documents ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .documents li {
+            background: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .inquiry-form {
+            margin-top: 20px;
+        }
+
+        .inquiry-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .inquiry-form input[type="text"],
+        .inquiry-form input[type="email"],
+        .inquiry-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .inquiry-form textarea {
+            height: 100px;
+        }
+
+        .inquiry-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #50b3a2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .inquiry-form button:hover {
+            background-color: #2980b9;
+        }
+
+#about-section{
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+ h2 {
+            font-size: 1.8em;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 15px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }

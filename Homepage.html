@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        nav {
+            background-color: #333;
+            z-index: 10; /* Ensure nav is above other elements */
+            position: relative;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+            position: relative; /* Add relative positioning */
+        }
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #111;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100; /* Ensure dropdown is above all elements */
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            max-width: 950px; /* Adjust max-width as per your design */
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .content {
+            text-align: left; /* Align text content to the left */
+            margin-left: 20px; /* Add some margin between image and text */
+            overflow: hidden;
+       }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+        img {
+            max-width: 100%; /* Ensure the image scales down if needed */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px;
+            margin-bottom: 20px;
+            max-height: 300px; /* Set a maximum height to limit image size */
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .input-container label {
+            flex: 1;
+            padding-right: 10px;
+        }
+        .input-container input, .input-container textarea {
+            flex: 2;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #guidance-office-section {
+            display: none;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+          #dashboard-section {
+           overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Home</a>
+                <div class="dropdown-content">
+                    <a href="#" id="dashboard-link">Dashboard</a>
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">FAQ</a>
+                <div class="dropdown-content">
+                    <a href="#" id="faq-link">General FAQs</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Registrar</a>
+                <div class="dropdown-content">
+                    <a href="#">Admissions</a>
+                    <a href="#">Courses</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Accounting</a>
+                <div class="dropdown-content">
+                    <a href="#" id="billing-link">Billing</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Others</a>
+                <div class="dropdown-content">
+                    <a href="#" id="guidance-office-link">Guidance Office</a>
+                    <a href="#">Academics</a>
+                    <a href="#">Library</a>
+                    <a href="#">Stocks</a>
+                    <a href="#">Prof/Teachers</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">About Us</a>
+                <div class="dropdown-content">
+                    <a href="#" id="about-link">About ICCT Colleges</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+     <div class="container" id="dashboard-section">
+        <img src="download.png" alt="Complaints ICCT">
+        <div class="content">
+            <h1>Welcome to ICCT Colleges</h1>
+            <p>Welcome to the ICCT Colleges Complaints Page. Your feedback is crucial to our continuous improvement efforts in creating a supportive and enriching learning environment. If you have any concerns or complaints, we encourage you to share them with us.</p> 
+            <p>This page ensures your voice is heard, and we are dedicated to addressing your concerns promptly and transparently. Every complaint is taken seriously, and we strive for fair resolutions.</p>
+        </div>
+    </div>
+    <div id="guidance-office-section">
+        <form id="student-complaint-form">  
+            <h2>Student Complaint Form</h2>  
+            <p>Please select the nature of your complaint:</p>  
+            <ul>  
+                <li>  
+                    <input value="Dropping Problem" name="complaint-type" id="dropping-problem" type="radio">  
+                    <label for="dropping-problem">Dropping Problem (e.g. unable to drop a course)</label>  
+                </li>  
+                <li>  
+                    <input value="Grade Problem" name="complaint-type" id="grade-problem" type="radio">  
+                    <label for="grade-problem">Grade Problem (e.g. incorrect grade, missing grade)</label>  
+                </li>  
+            </ul>  
+            <p>Please provide a detailed description of your complaint:</p>  
+            <textarea cols="50" rows="5" name="complaint-description" id="complaint-description"></textarea>  
+            <p>Contact Information:</p>
+            <div class="input-container">  
+                <label for="student-name">Student Name:</label>  
+                <input name="student-name" id="student-name" type="text">
+            </div>  
+            <div class="input-container">  
+                <label for="student-id">Student ID:</label>  
+                <input name="student-id" id="student-id" type="text">
+            </div>  
+            <div class="input-container">  
+                <label for="email">Email:</label>  
+                <input name="email" id="email" type="email">
+            </div>  
+            <input value="Submit Complaint" type="submit">  
+        </form>
+    </div>
+    <div class="container" id="billing-section">
+        <section class="fees">
+            <h2>SHS Programs Tuition & Miscellaneous Fee</h2>
+            <table class="shs-table">
+                <thead>
+                    <tr>
+                        <th>Program</th>
+                        <th>Annual Tuition Fee</th>
+                        <th>Monthly Cost</th>
+                        <th>Down Payment</th>
+                        <th>Installment Basis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>STEM (Science, Technology, Engineering, and Mathematics)</td>
+                        <td>4,000</td>
+                        <td>400</td>
+                        <td>1,000</td>
+                        <td>250 per quarter</td>
+                    </tr>
+                    <tr>
+                        <td>ABM (Accountancy, Business, and Management)</td>
+                        <td>4,200</td>
+                        <td>420</td>
+                        <td>1,050</td>
+                        <td>262.50 per quarter</td>
+                    </tr>
+                    <tr>
+                        <td>HUMSS (Humanities and Social Sciences)</td>
+                        <td>4,100</td>
+                        <td>410</td>
+                        <td>1,025</td>
+                        <td>256.25 per quarter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="fees">
+            <h2>College Programs Tuition & Miscellaneous Fee</h2>
+            <table class="college-table">
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Annual Tuition Fee</th>
+                        <th>Monthly Cost</th>
+                        <th>Down Payment</th>
+                        <th>Installment Basis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BSHM (Bachelor of Science in Hospitality Management)</td>
+                        <td>6,000</td>
+                        <td>600</td>
+                        <td>1,500</td>
+                        <td>375 per quarter</td>
+                    </tr>
+                    <tr>
+                        <td>BSTM (Bachelor of Science in Tourism Management)</td>
+                        <td>6,500</td>
+                        <td>650</td>
+                        <td>1,625</td>
+                        <td>406.25 per quarter</td>
+                    </tr>
+                    <tr>
+                        <td>BSIT (Bachelor of Science in Information Technology)</td>
+                        <td>7,000</td>
+                        <td>700</td>
+                        <td>1,750</td>
+                        <td>437.50 per quarter</td>
+                    </tr>
+                    <tr>
+                        <td>BS Criminology</td>
+                        <td>6,800</td>
+                        <td>680</td>
+                        <td>1,700</td>
+                        <td>425 per quarter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="documents">
+            <h2>Documents Needed for Enrollment</h2>
+            <ul>
+                <li>Birth Certificate</li>
+                <li>High School Diploma or Equivalent</li>
+                <li>Transcript of Records</li>
+                <li>Certificate of Good Moral Character</li>
+                <li>2x2 ID Pictures (4 pieces)</li>
+                <li>Entrance Exam Results</li>
+            </ul>
+        </section>
+        <section class="inquiry-form">
+            <h2>For any inquiries, kindly message us</h2>
+            <form action="#" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+
+<div class="container" id="about-section">
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>WICCT Colleges is a tertiary education provider with campuses located in the Province of Rizal, Philippines. In Rizal, it has campuses in the municipality of Cainta, Sumulong (Cainta), San Mateo, Cogeo, Antipolo, Taytay, Binangonan, and Angono. Course offerings include Arts & Sciences, Business, Computer, Criminology, Education, Engineering, Health Sciences, Hospitality & Tourism Management, Short Term/Certificate Programs, And SENIOR HIGH SCHOOL (Grade 11 & 12).</p>
+        </section>
+        <section id="mission-vision">
+            <h2>Mission & Vision</h2>
+            <h3>Mission</h3>
+            <p>To prepare students for the manifold demands of technological efficiency needed in the fields of Information & Communication Technology, the Health Sciences and the various disciplines of educational pursuits through research, advanced studies, and international linkages; and to temper this training with the inculcation of genuine love for work and the virtues of a value-based individual.p>
+            <h3>Vision</h3>
+            <p>To become the leading premier provider of higher education in Asia.</p>
+        </section>
+        <section id="campus">
+            <h2>Our Campus</h2>
+            <h3>Cainta (MAIN) Campus</h3>
+             <p>V. V. Soliven Avenue II, Bgy. San Isidro<br>
+                Cainta, Rizal (across Sta. Lucia East <br>Grand Mall)
+                <br>
+                Tel.#:<br>
+                (02)7.955.6284<br>
+                (02)8.249.2367<br>
+                <br>
+                Mobile #:<br>
+                0947.895.4228<br>
+                0932.872.4228<br>
+                0917.814.4228</p>
+                <br>
+            <h3>Antipolo Campus</h3>
+             <p>ICCT Colleges Building, Sumulong<br>Extension Street, Baranggay. San Roque,<br> Antipolo City, Rizal<br>
+                <br>
+                Tel.#:<br>
+                (02)7.975.4229<br>
+                <br>
+                Mobile #:<br>
+                0917.176.4228<br>
+                <br>
+            <h3>Cogeo Campus</h3>
+             <p>Foresthills Avenue cor. Aspen St., <br>Eastland Heights,Bagong Nayon II, Antipolo City, Rizal<br>
+                <br>
+                Tel.#:<br>
+                (02)8.356.6305<br>
+                7.980.4228<br>
+                <br>
+                Mobile #:<br>
+                0917.193.4228<br>
+                <br>
+            <h3>Binangonan Campus</h3>
+             <p>ICCT Bldg., National Rd., Bgy. Calumpang, Binangonan, Rizal<br>
+                <br>
+                Tel.#:<br>
+                (02)7.757.8939<br>
+                <br>
+                Mobile #:<br>
+                0908.398.6459<br>
+                <br>
+            <h3>Sumulong (Cainta ANNEX) Campus</h3>
+             <p>ICCT Compound, Sumulong Hi-way, Bgy. San Isidro, Cainta, Rizal (Near Marquinton / Bluewave Mall – Marikina)<br>
+                <br>
+                Tel.#:<br>
+                (02)7.966.4228<br>
+                <br>
+                Mobile #:<br>
+                0917.177.4228<br>
+                <br>
+            <h3>Taytay Campus</h3>
+             <p>Cabrera Rd. cor. Manila East Rd. Bgy. San Juan, Taytay, Rizal<br>
+                <br>
+                Tel.#:<br>
+                (02)7.978.4228<br>
+                <br>
+                Mobile #:<br>
+</div>
+
+<div class="container" id="faq-section">
+ <body> 
+   <p>
+  <details> <summary><strong>How to purchase a school uniform or student ID lace using the Student Portal?</strong></summary> 
+   <div>
+     <em>
+       <p>
+     First, you must be officially enrolled; This means that you have already generated an ORF, have a STUDENT ID NUMBER and have SET-UP or ACTIVATED a STUDENT PORTAL account. From your Student Portal, click on ACCOUNTS, then click on "Online Payment"; select or tick the school uniform or item/s to be purchased, then generate the REFERENCE NUMBER.
+     </p>
+     <p>
+     Use the REFERENCE NUMBER to pay thru GCASH, 7ELEVEN, ECPAY and PALAWANPAY. When the payment is successful, you will automatically receive an "ICCT Info" text message to confirm that your payment has been reflected in your Accounts Ledger.
+     </p>
+     <p>
+     Open your ACCOUNTS LEDGER from your Student Portal (ACCOUNT Menu); under Non-Assessment Fees, payments for your school uniform can be found there; go to the school's Supply Office (Cainta main Campus) or the Admissions Counter of your respective campuses to CLAIM your uniform from Monday to Saturday except Holidays, 7am to 7pm.
+     </p>
+     <p>
+     School uniform size (XS to XL) is subject to availability and/or first come first serve basis; In the campus itself, you will say the size you need and you will actually measure it. Bigger than XL are order basis.
+     </p>
+     </em> 
+   </div> 
+  </details> 
+       </p>
+       <p>
+  <details> <summary><strong>What will happen to my ENLISTED SUBJECTS if I do not settle payments within 48 hours during the enrollment period?</strong></summary> 
+   <div>
+     <em>
+       <p>
+       During ENLISTMENT and ENROLLMENT period, each student can enroll subjects thru ONLINE PORTAL, PORTAL HOTLINES ASSISTANCE or WALK-IN ASSISTANCE. When we are not sure about the chosen SECTION, avoid clicking the SAVE and ASSESSMENT button so that you can choose another section. Check if all the subjects and number of units are correct before proceeding with the ASSESSMENT of FEES. In the Assessmet of Fees, check the subjects again if this is compatible or complete based on your enlisted subjects before choosing Mode of Payment, then Save Assessment. Press the Tentative & Assessment Button to generate your TCS.
+       </p>
+       <p>
+       Please remember that the enlisted subjects or genrated TCS will remain your reserve slot within 48 hours. So please pay the downpayment, or full amount with discounts within 48 hours to proceed for the generation of Official Registration Form (ORF).
+       </p>
+     </em>
+   </div> 
+  </details>
+       </p>
+       <p>
+       <details> <summary><strong>Is it still possible to avail the cash basis discounted amount even if there is an ORF or the downpayment has already been paid?</strong></summary> 
+   <div>
+     <p>
+     <em>
+     If you have already paid the downpayment or your ORF has been generated but you want to avail the cash basis discounted amount, you can only settle the entire cash basis amount on or before classes start.
+     <p>
+     Example:
+     </p>
+     <p>
+     If the cash basis discounted amount is P5,500, less DP P1,030 = P4,470 must be paid to Cebuana or MLhullier; put "CB" (Cash Basis) at the end of your student ID number; It is not possible to generate a Reference Number because your assessment is already tagged as installment basis, so it will be manually adjusted to your account when the teller encodes your payment.
+     </p>
+     <p>
+     Every enrollment period, remember that the cash discounted amount can be availed as long as you have paid the full cash basis amount before the classes start.
+     </em>
+     </p>
+   </div> 
+  </details>
+       </p>
+       <p>
+       <details> <summary><strong>Can I pay only DP even if the mode of payment I chose is Full Payment with Discount?</strong></summary> 
+   <div>
+     <em>
+       <p>
+       Yes. If Full Payment with Discount was the mode of payment you chose when you enlisted and assessed fees, WE CAN STILL PAY DONWPAYMENT at Over-the-Counter Payment Centers such as Cebuana Lhullier, MLhuillier, Philippine Business Bank (PBB All Branches) or in Unionbak Online Payment. Put "DP" payment code at the end of your ID number (Ex. CA202312345DP). We are NOT able to pay with GCash or ECPay because we cannot generate a RefNum from our Student Portal because our account is in Full Payment mode of payment.
+       </p>
+       <p>
+       After 2 to 3 days from the date of payment, you will receive confirmation of your payment via text message from "ICCT Info."
+       </p>
+       <p>
+       In case you still want to avail the 10% discount for cash Basis, you can pay the balance based on the total discounted amount on or before classes start.
+       </p>
+       <p>
+       If the installment basis payment mode is chosen, we can still avail the Full Payment with Discount by simply paying the full discounted amount on or before classes start at our Over-the-Counter Payment Centers.
+       </p>
+     </em>
+   </div> 
+  </details>
+       </p>
+       <p>
+       <details> <summary><strong>How to settle accounts or unpaid balances from previous trimester/semester period?</strong></summary> 
+   <div>
+     <em>
+       <p>
+       When the trimester or semester period is CLOSED and REGISTRATION is OPEN for the upcoming trimester or semester period, WE CAN STILL GENERATE
+       </p>
+       <p>
+       REFERENCE NUMBER if paying thru GCash, ECPay and 7Eleven CLIQQ.
+       </p>
+       <p>
+       1. In your Student Portal, click on the ACCOUNTS menu;
+       </p>
+       <p>
+       2. From the Student Ledger / Transaction, press the trimester/semester period and year level where you have unsettled amounts;
+       </p>
+       <p>
+       3. Then press the Online Payment button;
+       </p>
+       <p>
+       Otherwise, we can settle thru Over-the-Counter Payment - Cebuana Lhuillier, MLhuillier and Philippine Business Bank; use your Student ID Number and add the payment code "AR" at the end; example CA202012345AR. The code "AR" is for the teller to know that the fees you paid were to settle your balances from the previous academic term.
+       </p>
+     </em>
+   </div> 
+  </details>
+       </p>
+       <p>
+       <details> <summary><strong>When can I ADD or ADD Subject/s during enrollment?</strong></summary> 
+   <div>
+     <em>
+       <p>
+       Now Enlistment of Subjects / Enrollment period, you can add subject/s during your COLLEGE and YEAR LEVEL Enlistment/Enrollment Schedule. It is not allowed to add subject/s once the classes have started.
+       </p>
+       <p>
+       Approval to ADD SUBJECT/S will also be based from the following school policies and considerations:
+       </p>
+       <p>
+       1. If the subject is a pre-requisite subject;
+       </p>
+       <p>
+       2. If the subject/s is offered or open in such trimester period;
+       </p>
+       <p>
+       3. If you have not exceeded the maximum number of units;
+       </p>
+       <p>
+       4. If you are going to ADD a subject/s and are not yet officially enrolled or do not have an ORF, you do not need to pay the Subject Adding Fee; you can enlist that subject from your STUDENT PORTAL otherwise, go to your campus for WALK-IN ENROLLMENT ASSISTANCE during your college schedule;
+       </p>
+       <p>
+       5. BUT if you are officially enrolled and the ORF has been generated:
+       </p>
+       <p>
+       5.1 You must pay a Subject Adding Fee of P50 per subject;
+       </p>
+       <p>
+       5.2 You can ADD a subject/s thru WALK-IN ENROLLMENT ASSISTANCE or call the PORTAL HOTLINES during your college schedule;
+       </p>
+       <p>
+       5.3 Must provide or show proof of payment for the Subject Adding Fee;
+       </p>
+       <p>
+       5.4 Then, check your portal for the NEW ASSESSMENT OF FEES, pay any additional fees especially if you are on a CASH BASIS to avoid changing the computation of your accounts;
+       </p>
+       <p>
+       5.5 Download your UPDATED ORF again.
+       </p>
+     </em>
+   </div> 
+  </details> 
+       </p>
+ </body>
+</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dashboardLink = document.getElementById('dashboard-link');
+            const dashboardSection = document.getElementById('dashboard-section');
+            const guidanceOfficeLink = document.getElementById('guidance-office-link');
+            const guidanceOfficeSection = document.getElementById('guidance-office-section');
+            const billingLink = document.getElementById('billing-link');
+            const billingSection = document.getElementById('billing-section');
+            const aboutLink = document.getElementById('about-link');
+            const aboutSection = document.getElementById('about-section');
+            const faqLink = document.getElementById('faq-link');
+            const faqSection = document.getElementById('faq-section');
+
+            dashboardLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                billingSection.style.display = 'none';
+                dashboardSection.style.display = 'flex';
+                guidanceOfficeSection.style.display = 'none';
+                aboutSection.style.display = 'none';
+                faqSection.style.display = 'none';
+                dashboardSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            guidanceOfficeLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                billingSection.style.display = 'none';
+                guidanceOfficeSection.style.display = 'block';
+                dashboardSection.style.display = 'none';
+                aboutSection.style.display = 'none';
+                faqSection.style.display = 'none';
+                guidanceOfficeSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            billingLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                billingSection.style.display = 'block';
+                dashboardSection.style.display = 'none';
+                guidanceOfficeSection.style.display = 'none';
+                aboutSection.style.display = 'none';
+                faqSection.style.display = 'none';
+                billingSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            aboutLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                billingSection.style.display = 'none';
+                dashboardSection.style.display = 'none';
+                guidanceOfficeSection.style.display = 'none';
+                aboutSection.style.display = 'block';
+                faqSection.style.display = 'none';
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            faqLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                billingSection.style.display = 'none';
+                dashboardSection.style.display = 'none';
+                guidanceOfficeSection.style.display = 'none';
+                aboutSection.style.display = 'none';
+                faqSection.style.display = 'block';
+                faqSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
